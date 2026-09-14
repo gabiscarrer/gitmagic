@@ -5,16 +5,14 @@ function find_selflink() {
     var a = document.links;
     var i = 0;
     while (i < a.length) {
-	if (a[i].href == document.URL) {
-            var c;
-            var j;
+        var link = a[i];
+        if (link.href == document.URL) {
             var s_new = document.createElement("span");
             s_new.className = "currentlink";
-            c = a[i].childNodes;
-            for (j=0; j<c.length; j++) {
-                s_new.appendChild(c[j]);
+            while (link.firstChild) {
+                s_new.appendChild(link.firstChild);
             }
-            a[i].parentNode.replaceChild(s_new, a[i]);
+            link.parentNode.replaceChild(s_new, link);
         } else {
             i++;
         }
