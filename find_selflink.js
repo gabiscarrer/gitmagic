@@ -3,34 +3,18 @@
 
 function find_selflink() {
     var a = document.links;
-    var i = 0;
-    while (i < a.length) {
-	if (a[i].href == document.URL) {
-            var c;
-            var j;
+    // document.links is a live collection. Walk backwards so removing the
+    // current link cannot change the indexes that are still to be visited.
+    for (var i = a.length - 1; i >= 0; i--) {
+        var link = a[i];
+        if (link.href == document.URL) {
             var s_new = document.createElement("span");
             s_new.className = "currentlink";
-            c = a[i].childNodes;
-            for (j=0; j<c.length; j++) {
-                s_new.appendChild(c[j]);
+            while (link.firstChild) {
+                s_new.appendChild(link.firstChild);
             }
-            a[i].parentNode.replaceChild(s_new, a[i]);
-        } else {
-            i++;
+            link.parentNode.replaceChild(s_new, link);
         }
-
-	/*
-	if (a[i].href == document.URL) {
-	    a[i].className = "currentlink";
-	    if (0) {
-		var s_new = document.createElement("span");
-		s_new.className = "currentlink";
-		s_new.appendChild(a[i]);
-		a[i].parentNode.replaceChild(s_new, a[i]);
-	    }
-	}
-	i++;
-	*/
     }
 }
 
