@@ -5,7 +5,7 @@ To start, clone the gitmagic project.
 
 Make the directory corresponding to your language tag and change into it.
 	mkdir xx
-	chdir xx
+	cd xx
 
 Create a symlink to this Makefile:
 	ln -s ../po4gitmagic/Makefile Makefile
@@ -13,7 +13,7 @@ Create a symlink to this Makefile:
 Now run make to create the pot folder and all the .po files in there.
 	make gettext
 
-Start translating with your prefered .po file editor (e.g. poedit, gtranslator).
+Start translating with your preferred .po file editor (e.g. poedit, gtranslator).
 
 You need to have 80% of a .po file translated, then you can run:
 	make translate
@@ -24,7 +24,7 @@ To proof your work change in the gitmagic root folder, run:
 	make xx
 where xx is the subdirectory name.
 
-If something in the original .txt files changed, goto your language folder and run:
+If something in the original .txt files changed, go to your language folder and run:
 	make update
 
 This will update your .po files and mark the changed items as 'fuzzy'. 
