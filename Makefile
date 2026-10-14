@@ -1,4 +1,4 @@
-# The availaible translation languages.
+# The available translation languages.
 # When starting a new translation, add a language code here.
 
 TRANSLATIONS = de es fr ko pt_br ru uk vi zh_cn zh_tw it pl
